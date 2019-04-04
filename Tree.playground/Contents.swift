@@ -28,7 +28,7 @@ func binaryTree(arr:[Int], firstIndex:Int, lastIndex:Int) -> Node?{
     if lastIndex < firstIndex{
         return nil
     }
-    let mid = (lastIndex - firstIndex)/2 + firstIndex // Adding fisrtIndex, since mid value would be different for different arrays, and adding firstIndex gets the correct mid index
+    let mid = (lastIndex + firstIndex)/2 
     let node = Node(value: arr[mid])
     node.leftNode = binaryTree(arr: arr, firstIndex: firstIndex, lastIndex: mid-1)
     node.rightNode = binaryTree(arr: arr, firstIndex: mid + 1, lastIndex: lastIndex)
