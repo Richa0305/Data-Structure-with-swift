@@ -2,9 +2,7 @@
 // By Richa Srivastava
 //Tree With Swift
 
-
 // [2,3,4,5,6,7,8] make binary tree for this array
-
 import Foundation
 /*
  5
@@ -42,11 +40,18 @@ func searchBinary(node:Node?,searchVal:Int) -> Bool{
         return true
     }
     if searchVal < (node?.value)!{
-        searchBinary(node: node?.leftNode, searchVal: searchVal)
+        if node?.leftNode == nil {
+            return false
+        }else{
+            return searchBinary(node: node?.leftNode, searchVal: searchVal)
+        }
     }else{
-        searchBinary(node: node?.rightNode, searchVal: searchVal)
+        if node?.rightNode == nil {
+            return false
+        }else{
+            return searchBinary(node: node?.rightNode, searchVal: searchVal)
+        }
     }
-    return false
 }
 
 
@@ -104,7 +109,7 @@ print(tree?.rightNode?.value ?? 0)
 
 
 print("==binary search ====")
-print(searchBinary(node: tree, searchVal: 6))
+print(searchBinary(node: tree, searchVal: 9))
 
 
 print("====Max Depth of the tree=====")
