@@ -5,9 +5,9 @@
 // [2,3,4,5,6,7,8] make binary tree for this array
 import Foundation
 /*
- 5
- 3          7
- 2       4   6      8
+              5
+        3          7
+    2       4   6      8
  */
 let arr = [2,3,4,5,6,7,8]
 var arr2 = [Int]()
@@ -28,7 +28,7 @@ func binaryTree(arr:[Int], firstIndex:Int, lastIndex:Int) -> Node?{
     if lastIndex < firstIndex{
         return nil
     }
-    let mid = (lastIndex + firstIndex)/2 
+    let mid = (lastIndex + firstIndex)/2
     let node = Node(value: arr[mid])
     node.leftNode = binaryTree(arr: arr, firstIndex: firstIndex, lastIndex: mid-1)
     node.rightNode = binaryTree(arr: arr, firstIndex: mid + 1, lastIndex: lastIndex)
@@ -52,6 +52,39 @@ func searchBinary(node:Node?,searchVal:Int) -> Bool{
             return searchBinary(node: node?.rightNode, searchVal: searchVal)
         }
     }
+}
+
+// inorder traversal Left -> root -> right
+func printInOrder(node:Node?){
+    if node?.leftNode != nil{
+        printInOrder(node: node?.leftNode)
+    }
+    print(node?.value ?? 0)
+    if node?.rightNode != nil {
+        printInOrder(node: node?.rightNode)
+    }
+}
+
+// preOrder traversal  root -> Left -> right
+func printPreOrder(node:Node?){
+    print(node?.value ?? 0)
+    if node?.leftNode != nil{
+        printPreOrder(node: node?.leftNode)
+    }
+    if node?.rightNode != nil {
+        printPreOrder(node: node?.rightNode)
+    }
+}
+
+// preOrder traversal  root -> Left -> right
+func printPostOrder(node:Node?){
+    if node?.leftNode != nil{
+        printPostOrder(node: node?.leftNode)
+    }
+    if node?.rightNode != nil {
+        printPostOrder(node: node?.rightNode)
+    }
+    print(node?.value ?? 0)
 }
 
 
@@ -109,8 +142,16 @@ print(tree?.rightNode?.value ?? 0)
 
 
 print("==binary search ====")
-print(searchBinary(node: tree, searchVal: 9))
+print(searchBinary(node: tree, searchVal: 88))
 
+print("====InOrder Traversal======")
+printInOrder(node: tree)
+
+print("====preorder Traversal======")
+printPreOrder(node: tree)
+
+print("====postorder Traversal======")
+printPostOrder(node: tree)
 
 print("====Max Depth of the tree=====")
 print(maxDepth(rootNode: tree))
