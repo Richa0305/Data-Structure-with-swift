@@ -1,0 +1,7 @@
+Knapsack problem - Given a bag, and some items(with weight and value of each item) and max weight capacity of the bag. Add items to the bag which can give max profit.
+
+Types of knapsack -
+1. 0-1 knapsack - In this we can either put an item in bag or we cant put it in bag
+2. fractional - In this we can put some fraction of the item to achieve max profit 
+3. unbounded - Similar as 0-1 but any item can be added multiple times
+
