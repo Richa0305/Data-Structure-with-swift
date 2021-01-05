@@ -1,6 +1,7 @@
 https://www.youtube.com/watch?v=nqowUJzG-iM&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go
 
-Dynamic Programming - Dynamic Programming is mainly an optimization over a plain recursion. In DP we memorize the result of recursive function of some specific state, 
+##Dynamic Programming - 
+Dynamic Programming is mainly an optimization over a plain recursion. In DP we memorize the result of recursive function of some specific state, 
 which can then be later accessed to solve other sub-problems.
 
 DP = Recursion -> Memozation -> top down approach 
