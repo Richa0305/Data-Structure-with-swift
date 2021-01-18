@@ -1,3 +1,38 @@
 Binery Search = Sorted 
 
 Any problem which has sorted array can be solved using binery search. 
+
+
+Example -
+Given a Sorted array search for element 7 - 
+Input - [1,2,3,4,5,6,7,8]
+Output - Found at index 6
+
+        Index   [0,1,2,3,4,5,6,7]
+        Array - [1,2,3,4,5,6,7,8]
+
+Linear Search - compare with each element in array
+Binary Search - 
+Step 1 - Take start and end pointer and calculate mid pointer, if element if equal to mid pointer element the return mid index. 
+Step 2 - if element if less then mid pointer element then discard second half of array and mid-1 will become end pointer now. and repeat step 1 agaian. 
+Step 3 -if element if greater then mid pointer element then discard first half of array and mid+1 will become start pointer now. and repeat step 1 agaian. 
+
+Code - 
+
+    start = 0
+    end = n-1 
+    
+    while (start <= end) {
+    
+      var mid = (start + end) / 2
+      
+      if searchValue == arr[mid] {
+          return mid
+      }
+      else if searchValue > arr[mid] { 
+          start = arr[mid + 1]
+      } else {
+          end = arr[mid - 1]
+      }
+    
+    }
