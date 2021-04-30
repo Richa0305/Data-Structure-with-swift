@@ -195,3 +195,132 @@ func groupAnagram(arr: [String]) -> [[String]]{
 }
 groupAnagram(arr: ["eat","tea","tan","ate","nat","bat"])
 
+/**
+ is valid paranthesis : Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+ An input string is valid if:
+ 
+ Open brackets must be closed by the same type of brackets.
+ Open brackets must be closed in the correct order.
+ 
+ Example 1:
+
+ Input: s = "()"
+ Output: true
+ 
+ Input: s = "(]"
+ Output: false
+
+ Input: s = "([)]"
+ Output: false
+
+ Input: s = "{[]}"
+ Output: true
+ */
+class Solution {
+    func isValid(_ s: String) -> Bool {
+    let stack = StackArray()
+    let opening = "{(["
+    let closing = "]})"
+    let validDict = ["{":"}", "(":")", "[":"]"]
+        
+    if s.count <= 1 {
+        return false
+    }
+        
+    for char in s {
+        if opening.contains(char) {
+            stack.push(newElement: String(char))
+        } else if closing.contains(char) {
+            if let last = stack.peek() {
+                if let validClosing = validDict[last] {
+                    if validClosing == String(char) {
+                        stack.pop()
+                    } else {
+                        return false
+                    }
+                }
+            } else {
+                stack.push(newElement: String(char))
+            }
+        } else {
+            stack.push(newElement: String(char))
+        }
+    }
+    if stack.isEmpty() {
+        return true
+    }
+    return false
+    }
+}
+
+class StackArray {
+    var arr = [String]()
+    
+    func push(newElement: String) {
+        arr.append(newElement)
+    }
+    
+    func pop() {
+        arr.removeLast()
+    }
+    
+    func peek() -> String? {
+        return arr.last
+    }
+    
+    func isEmpty() -> Bool {
+        return (arr.last != nil) ? false : true
+    }
+}
+//isValid(s: ")(){}")
+Solution().isValid(")(){}")
+
+/**
+ Check Palindrom in Integer : Ex -  12321 // true
+ 
+ */
+
+
+func checkPalindrom(x: Int) -> Bool {
+    if x < 0 {
+        return false
+    }
+    var number = x
+    
+    var arr = [Int]()
+    for _ in 0...String(number).count {
+        if number > 0 {
+            arr.append(number % 10)
+            number = number / 10
+        }
+    }
+    var firstIndex = 0
+    var lastIndex = arr.count - 1
+    
+    while lastIndex > firstIndex {
+        if arr[firstIndex] != arr[lastIndex] {
+            return false
+        }
+        firstIndex += 1
+        lastIndex -= 1
+    }
+    return true
+}
+
+checkPalindrom(x: 12321)
+
+
+func checkPalindromByReverseing(x: Int) -> Bool {
+    if x < 0 {
+        return false
+    }
+    var reversedNumber = 0
+    var number = x
+    while number > 0 {
+        let reminder = number % 10
+        reversedNumber = reversedNumber * 10 + reminder
+        number = number / 10
+    }
+    return x == reversedNumber
+}
+checkPalindrom(x: 123421)
