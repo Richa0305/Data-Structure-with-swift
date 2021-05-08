@@ -1,4 +1,6 @@
 /**
+ 1st -
+ 
  Two Sum Problem : Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
  Input: nums = [2,7,11,15, 5, 3], target = 9
  Output: [0,1]
@@ -30,6 +32,8 @@ twoSum(nums, 6)
 
 /**
  
+ 2nd -
+ 
  Fibonacci - 1 1 2 3 5 8 13
  */
 
@@ -52,6 +56,9 @@ func fib(num: Int) -> Int {
 fib(num: 5)
 
 /**
+ 
+ 3rd
+ 
  Binary search in sorted array : search a value in a sorted array using binary search tree
  */
 
@@ -80,6 +87,8 @@ func binarySearch(array: [Int], searchVal: Int) -> Bool{
 binarySearch(array: arr, searchVal: 0)
 
 /**
+ 4th
+ 
  Find second max element in an array of int
  */
 
@@ -101,6 +110,8 @@ findSecondMax()
 
 
 /*
+ 5th
+ 
  second larget digit in string
  
  Example 1:
@@ -134,6 +145,8 @@ findSecondMaxInString(str: "dfa12321afd")
 
 
 /*
+ 6th
+ 
  Sorting Algo : Quick Sort
  */
 func quickSort(arr:[Int]) -> [Int]{
@@ -159,6 +172,8 @@ quickSort(arr: array)
 
 
 /**
+ 7th
+ 
  Find kth largest in an array
  */
 
@@ -169,6 +184,8 @@ func findKthLargest(arr: [Int], k: Int)  -> Int {
 
 
 /**
+ 8th
+ 
  Group Anagram : Given an array of strings strs, group the anagrams together. You can return the answer in any order.
  
  An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
@@ -196,6 +213,8 @@ func groupAnagram(arr: [String]) -> [[String]]{
 groupAnagram(arr: ["eat","tea","tan","ate","nat","bat"])
 
 /**
+ 9th
+ 
  is valid paranthesis : Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
  An input string is valid if:
  
@@ -276,6 +295,8 @@ class StackArray {
 Solution().isValid(")(){}")
 
 /**
+ 10th
+ 
  Check Palindrom in Integer : Ex -  12321 // true
  
  */
@@ -324,3 +345,31 @@ func checkPalindromByReverseing(x: Int) -> Bool {
     return x == reversedNumber
 }
 checkPalindrom(x: 123421)
+
+
+/**
+ Search In Matrix :
+ Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:
+
+ Integers in each row are sorted from left to right.
+ The first integer of each row is greater than the last integer of the previous row.
+ */
+
+func searchInMatrix(matrixArray: [[Int]], target: Int) -> Bool {
+    var targetArr = [Int]()
+    
+    for arrs in matrixArray {
+        if (target >= arrs[0]) && (target <= arrs[arrs.count-1]) {
+            targetArr = arrs
+        }
+    }
+    
+    for item in targetArr {
+        if item == target {
+            return true
+        }
+    }
+    return false
+}
+
+searchInMatrix(matrixArray:[[1,3,5,7],[10,11,16,20],[23,30,34,60]], target: 11)
