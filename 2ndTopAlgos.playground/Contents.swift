@@ -217,5 +217,145 @@ let sortedMergedArray = mergeSortedArray(arr1: [2,1,5], arr2: [5,3,8])
 sortedMergedArray
 
 /**
- Merge two sorted List : 
+ Merge two sorted List :
  */
+
+
+
+
+func findCompletePrefixes(names: [String], query: [String]) -> [Int] {
+    var queryVals = Array(repeating: 0, count: query.count)
+    var namesDict = [String:Int]()
+    for (index, name) in names.enumerated() {
+        namesDict[name] = index
+    }
+    for (index,q) in query.enumerated() {
+        let results = namesDict.flatMap { (key, value) in (key.contains(q) && key != q) ? value : nil }
+
+        print(results)
+    }
+    
+    
+//    for (index,q) in query.enumerated() {
+//        queryVals[index] = 0
+//        for name in names {
+//            if name.contains(q) && name != q {
+//                queryVals[index] = queryVals[index] + 1
+//            }
+//        }
+//    }
+//
+    return queryVals
+}
+
+//findCompletePrefixes(names: ["steve","stevens","danny","steves","dan","john","johnny","joe","alex","alexander"], query: ["steve","alex","joe","john","dan"])
+
+
+func minimizeBias(ratings: [Int]) -> Int {
+    var bias = [Int]()
+    var biasAmount = 0
+    for i in 0...ratings.count {
+        for j in 0...ratings.count {
+            biasAmount = -1
+            if i != j {
+                if (biasAmount != -1) && (biasAmount > abs(ratings[j] - ratings[i])){
+                    biasAmount = abs(ratings[j] - ratings[i])
+                }
+            }
+            bias.append(biasAmount)
+        }
+    }
+    
+    return biasAmount
+}
+minimizeBias(ratings: [1,3,6,6])
+
+
+enum APIEnvironment: String {
+    case development
+    case staging
+    case production
+}
+
+APIEnvironment.production.rawValue
+
+func foo() {
+    DispatchQueue.global().sync {
+        
+        for i in 0...10 {
+            print (i)
+        }
+    }
+    
+    DispatchQueue.global().sync {
+        
+        for i in 11...20 {
+            print (i)
+        }
+    }
+}
+foo()
+
+DispatchQueue.global().async {
+    print("hiiii")
+    DispatchQueue.global().sync {
+        print("hello")
+    }
+    print("whatsever")
+}
+let queue = DispatchQueue(label: "myqueue")
+queue.sync {
+    queue.async {
+        // outer block is waiting for this inner block to complete
+        // inner block won’t start before outer block finishes
+        // hanse -> DEADLOCK
+        print(" myqueue hello")
+    }
+    print(" myqueue hiiiii")
+    // this will never be reached
+}
+
+
+func longestPalindrome(_ s: String) -> String {
+    var substringDict = [String:Int]()
+    
+    for char in s {
+        
+    }
+    
+    
+    return ""
+}
+
+func isPalindrom(_ s:String) -> Bool {
+    if(s.count <= 1) {
+        return true
+    }
+    let sArr = Array(s)
+    var first = 0
+    var last = sArr.count - 1
+    
+    while first < last {
+        if !isAlphaNumaric(char: sArr[first]) {
+            first += 1
+            continue
+        }else if !isAlphaNumaric(char: sArr[last]) {
+            last -= 1
+            continue
+        }
+      
+        if sArr[first].lowercased() != sArr[last].lowercased() {
+            return false
+        }
+        
+        first += 1
+        last -= 1
+    }
+    return true
+}
+func isAlphaNumaric(char: Character) -> Bool{
+    return char.isLetter || char.isNumber
+  
+}
+isPalindrom("A man, a plan, a canal: Panama")
+longestPalindrome("babad")
