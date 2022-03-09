@@ -21,6 +21,9 @@ Identify Recusion problem - if problem contains [Choice] + [Decisions]
 <img width="1256" alt="Screenshot 2022-03-09 at 08 00 04" src="https://user-images.githubusercontent.com/10761678/157381720-4a291db1-e46a-4769-855d-f7a7f685bb80.png">
 
 How to solve recursion problem - Make smaller input in every recursive call
+1. Base Conditions - like smallest input values 
+2. Hypothesis - design the function which gives output 
+3. Induction - Logic for output 
 
 
 
