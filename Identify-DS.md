@@ -3,6 +3,7 @@
 
 ## Binery Search 
 https://www.youtube.com/watch?v=QNGL_t_o_QA&list=PL_z_8CaSLPWeYfhtuKHj-9MpYb6XQJ_f2&index=2
+
 Use binery search if problem statement contains sorted array 
 
 Always get mid by below formula - 
@@ -14,6 +15,7 @@ Benefit : if we do (start+end)/2 then this can lead to int overflow in case int 
 
 ## Recursion - 
 https://www.youtube.com/watch?v=kHi1DUhp9kM&list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY
+
 Identify Recusion problem - if problem contains [Choice] + [Decisions]
 
 <img width="1256" alt="Screenshot 2022-03-09 at 08 00 04" src="https://user-images.githubusercontent.com/10761678/157381720-4a291db1-e46a-4769-855d-f7a7f685bb80.png">
