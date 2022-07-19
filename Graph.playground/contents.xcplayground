@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='5.0' target-platform='ios'>
-    <timeline fileName='timeline.xctimeline'/>
+<playground version='6.0' target-platform='ios' buildActiveScheme='true' importAppTypes='true'>
+    <pages>
+        <page name='1.BFS &amp; DFS'/>
+        <page name='2.hasPathDicrected'/>
+        <page name='3.hasPathUnDirected'/>
+        <page name='4.connectComponentCount'/>
+        <page name='5.largestComponent'/>
+        <page name='6.shortestPath'/>
+        <page name='7.islandCount'/>
+        <page name='8.minimumIsland'/>
+    </pages>
 </playground>
